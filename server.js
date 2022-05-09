@@ -28,6 +28,8 @@ const checkJwt = auth({
   issuerBaseURL: `https://misiontic-concesionario-personal.us.auth0.com/`,
 });
 
+
+//4 y 5 enviarle el token a auth0 par que devuelve si es valido o no
 app.use(checkJwt);
 
 app.use(rutasVehiculo);

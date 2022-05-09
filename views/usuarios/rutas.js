@@ -1,5 +1,6 @@
 import Express from 'express';
 import { 
+    consultarOCrearUsuario,
     consultarUsuario, 
     crearUsuario, 
     editarUsuario, 
@@ -25,6 +26,13 @@ rutasUsuario.route("/usuarios").get((req, res) => {
 rutasUsuario.route("/usuarios").post((req, res) => {
     crearUsuario(req.body, genericCallback(res));
 });
+
+rutasUsuario.route("/usuarios/self").get((req, res) => {
+    console.log("alguien hizo get en la ruta /self");
+    consultarOCrearUsuario(req, genericCallback(res))
+    //crearUsuario(req.body, genericCallback(res));
+});
+
 
 rutasUsuario.route("/usuarios/:id").get((req, res) => {
     console.log("alguien hizo get en la ruta /usuarios");
