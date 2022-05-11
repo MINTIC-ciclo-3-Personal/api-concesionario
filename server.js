@@ -10,6 +10,7 @@ import rutasVehiculo from "./views/vehiculos/rutas.js";
 import rutasUsuario from "./views/usuarios/rutas.js";
 import rutasVenta from "./views/ventas/rutas.js";
 import { auth } from 'express-oauth2-jwt-bearer';
+import autorizacionEstadoUsuario from "./middleware/autorizacionEstadoUsuario.js";
 
 
 
@@ -32,6 +33,8 @@ const checkJwt = auth({
 //4 y 5 enviarle el token a auth0 par que devuelve si es valido o no
 app.use(checkJwt);
 
+
+app.use( autorizacionEstadoUsuario)
 app.use(rutasVehiculo);
 app.use(rutasUsuario);
 app.use(rutasVenta);
